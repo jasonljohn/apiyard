@@ -34,17 +34,24 @@ class Client {
             jsonStr = response.body();
 
             // convert JSON array to Array objects
-            // It's advised to use ObjectMapper as a singleton and reuse the instance
+            // It's advised to use ObjectMapper as a singleton and reuse the instance, map JSON data to Post class.
             final ObjectMapper objectMapper = new ObjectMapper();
             Post[] posts = objectMapper.readValue(jsonStr, Post[].class);
 
             // put json into an arrayList
-            ArrayList<?> list = new ArrayList<>(Arrays.asList(posts));
+            //ArrayList<?> list = new ArrayList<>(Arrays.asList(posts));
             // print out all the posts in list
-            list.forEach( x -> System.out.println(x.toString()));
+            // list.forEach( x -> System.out.println(x.toString()));
 
-            //System.out.println(Arrays.toString(objectMapper.readerForUpdating(posts).readValue(jsonStr, Post[].class)));
-
+            /**
+             * At his point we could access to post ID, user ID, title and body of the message.
+             * we can do something with those data. preferable If we could use stream and lambda to maneuver the data set.
+             */
+            for (Post p : posts) {
+                if (p.getId() == 1 && p.getId() != 0) {
+                    System.out.println(p);
+                }
+            }
         } catch (InterruptedException | IOException e) {
             e.printStackTrace();
         }

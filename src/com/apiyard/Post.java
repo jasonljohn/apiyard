@@ -10,7 +10,6 @@ public class Post {
     private int id;
     private int userId;
 
-
     public Post(){
 
     }
@@ -55,7 +54,7 @@ public class Post {
 
     @Override
     public String toString(){
-        return "Post: " + getId() + "\n" + " has a title of: " + "<<" + getTitle() + ">>"+ "\n" +
-                " and message is: " + " " + getBody() + "\n";
+        return "Post: " + getId() + "\n" + "User Id: " + getUserId() + "\n" + "The title is: " + "<<" + getTitle() + ">>"+ "\n" +
+                "The body of message are: " + " " + getBody() + "\n";
     }
 }
